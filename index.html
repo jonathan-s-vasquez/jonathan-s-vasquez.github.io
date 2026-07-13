@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cat - Lost Pet Profile</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* Card Component */
+        .card {
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .card-header h1 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .card-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Photo Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .photo-item {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 16px;
+            color: #333;
+            font-weight: 400;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .btn-primary {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5568d3;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-danger {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #d32f2f;
+            box-shadow: 0 2px 8px rgba(244, 67, 54, 0.4);
+        }
+
+        /* Alert Box */
+        .alert {
+            padding: 16px;
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+            margin-bottom: 16px;
+            border-radius: 4px;
+        }
+
+        .alert-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #c62828;
+            margin-bottom: 8px;
+        }
+
+        .alert-text {
+            font-size: 14px;
+            color: #b71c1c;
+        }
+
+        /* Last Seen Section */
+        .last-seen {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .last-seen .card-header {
+            background: transparent;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+        }
+
+        .phone-number {
+            font-size: 20px;
+            font-weight: 500;
+            color: #667eea;
+            margin: 16px 0;
+        }
+
+        /* Map Link */
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .map-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px 16px;
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* Modal for Photos */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 4px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 600px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .container {
+                padding: 24px;
+            }
+
+            .card-header h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .info-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Alert Banner -->
+        <div class="alert">
+            <div class="alert-title">⚠️ LOST PET ALERT</div>
+            <div class="alert-text">If you see this cat, please contact the owner immediately using the information below.</div>
+        </div>
+
+        <!-- Main Profile Card -->
+        <div class="card">
+            <div class="card-header">
+                <h1 id="cat-name">Loading...</h1>
+                <p id="cat-description">Please wait while we load the profile</p>
+            </div>
+            <div class="card-content">
+                <!-- Photo Gallery -->
+                <div class="photo-gallery" id="photo-gallery">
+                    <!-- Photos will be loaded here -->
+                </div>
+
+                <!-- Cat Details -->
+                <h2 class="card-title">Cat Details</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Name</span>
+                        <span class="info-value" id="name-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Color</span>
+                        <span class="info-value" id="color-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Age</span>
+                        <span class="info-value" id="age-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Birthday</span>
+                        <span class="info-value" id="birthday-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Gender</span>
+                        <span class="info-value" id="gender-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Breed</span>
+                        <span class="info-value" id="breed-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Weight</span>
+                        <span class="info-value" id="weight-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Microchip ID</span>
+                        <span class="info-value" id="microchip-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Distinctive Marks</span>
+                        <span class="info-value" id="marks-display">-</span>
+                    </div>
+                </div>
+
+                <!-- Home Address -->
+                <h2 class="card-title" style="margin-top: 24px;">Home Address</h2>
+                <div class="info-item">
+                    <span class="info-value" id="address-display">-</span>
+                    <a href="#" class="map-link" id="address-map-link" target="_blank" rel="noopener noreferrer">
+                        📍 Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Last Seen Card -->
+        <div class="card last-seen">
+            <div class="card-header">
+                <h2 class="card-title" style="border-bottom: none; color: white;">Last Seen Information</h2>
+            </div>
+            <div class="card-content">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Date</span>
+                        <span class="info-value" id="last-seen-date">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Location</span>
+                        <span class="info-value" id="last-seen-location">-</span>
+                    </div>
+                </div>
+                <div style="margin-top: 16px;">
+                    <a href="#" class="btn btn-primary" id="last-seen-map-btn" target="_blank" rel="noopener noreferrer">
+                        View on Map
+                    </a>
+                    <button class="btn btn-secondary" onclick="shareLocation()">
+                        Share Location
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Info Card -->
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Medical Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Vaccinated</span>
+                        <span class="info-value" id="vaccinated-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Neutered/Spayed</span>
+                        <span class="info-value" id="neutered-display">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Medical Conditions</span>
+                        <span class="info-value" id="medical-conditions">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Veterinarian</span>
+                        <span class="info-value" id="vet-info">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="card contact-section">
+            <div class="card-content">
+                <h2 class="card-title">Contact Owner</h2>
+                <p style="color: #666; margin-bottom: 16px;">If you find this cat, please call or text immediately:</p>
+                <div class="phone-number" id="owner-phone">-</div>
+                <div>
+                    <a href="tel:+1234567890" class="btn btn-primary" id="call-btn">
+                        📞 Call Now
+                    </a>
+                    <a href="sms:+1234567890" class="btn btn-secondary" id="text-btn">
+                        💬 Send SMS
+                    </a>
+                    <button class="btn btn-danger" onclick="shareProfile()">
+                        📤 Share Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Last updated: <span id="last-updated">-</span></p>
+            <p style="margin-top: 8px;">Thank you for helping bring our beloved pet home! 🐱❤️</p>
+        </div>
+    </div>
+
+    <!-- Photo Modal -->
+    <div class="modal" id="photo-modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modal-image" src="" alt="Enlarged photo">
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // CONFIGURATION - EDIT THIS SECTION
+        // ============================================
+
+        const catProfile = {
+            name: "Whiskers",
+            color: "Orange Tabby with White Paws",
+            birthday: "2019-03-15", // Format: YYYY-MM-DD
+            gender: "Male",
+            breed: "Domestic Shorthair",
+            weight: "4.5 kg",
+            microchipId: "985112345678901",
+            distinctiveMarks: "White patch on chest, small scar above left eye",
+            homeAddress: "123 Maple Street, Springfield, IL 62701, USA",
+            googleMapsLink: "https://maps.google.com/?q=123+Maple+Street,+Springfield,+IL+62701",
+            lastSeen: {
+                date: "2024-01-15",
+                location: "Near Central Park, Springfield",
+                mapsLink: "https://maps.google.com/?q=Central+Park,+Springfield,+IL"
+            },
+            medical: {
+                vaccinated: true,
+                neutered: true,
+                conditions: "None - Healthy",
+                veterinarian: "Dr. Smith - Springfield Animal Clinic (555-0123)"
+            },
+            ownerPhone: "+1-555-123-4567",
+            photos: [
+                "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop",
+                "https://images.unsplash.com/photo-1573865526739-10659fec7805?w=400&h=300&fit=crop",
+                "https://images.unsplash.com/photo-1495360019602-e0019216adfe?w=400&h=300&fit=crop",
+                "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400&h=300&fit=crop"
+            ],
+            lastUpdated: new Date().toISOString()
+        };
+
+        // ============================================
+        // FUNCTIONS - DO NOT EDIT BELOW THIS LINE
+        // ============================================
+
+        // Calculate age from birthday
+        function calculateAge(birthday) {
+            const birthDate = new Date(birthday);
+            const today = new Date();
+
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            return { years, months, days };
+        }
+
+        // Format age for display
+        function formatAge(age) {
+            const parts = [];
+            if (age.years > 0) {
+                parts.push(`${age.years} year${age.years > 1 ? 's' : ''}`);
+            }
+            if (age.months > 0) {
+                parts.push(`${age.months} month${age.months > 1 ? 's' : ''}`);
+            }
+            if (age.days > 0 && age.years === 0) {
+                parts.push(`${age.days} day${age.days > 1 ? 's' : ''}`);
+            }
+            return parts.join(', ') || 'Newborn';
+        }
+
+        // Format date for display
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Load cat profile data into the page
+        function loadProfile() {
+            // Basic info
+            document.getElementById('cat-name').textContent = catProfile.name;
+            document.getElementById('cat-description').textContent = `${catProfile.color} • ${catProfile.breed}`;
+
+            // Details
+            document.getElementById('name-display').textContent = catProfile.name;
+            document.getElementById('color-display').textContent = catProfile.color;
+            document.getElementById('gender-display').textContent = catProfile.gender;
+            document.getElementById('breed-display').textContent = catProfile.breed;
+            document.getElementById('weight-display').textContent = catProfile.weight;
+            document.getElementById('microchip-display').textContent = catProfile.microchipId;
+            document.getElementById('marks-display').textContent = catProfile.distinctiveMarks;
+            document.getElementById('birthday-display').textContent = formatDate(catProfile.birthday);
+
+            // Age calculation
+            const age = calculateAge(catProfile.birthday);
+            document.getElementById('age-display').textContent = formatAge(age);
+
+            // Address
+            document.getElementById('address-display').textContent = catProfile.homeAddress;
+            document.getElementById('address-map-link').href = catProfile.googleMapsLink;
+
+            // Last seen
+            document.getElementById('last-seen-date').textContent = formatDate(catProfile.lastSeen.date);
+            document.getElementById('last-seen-location').textContent = catProfile.lastSeen.location;
+            document.getElementById('last-seen-map-btn').href = catProfile.lastSeen.mapsLink;
+
+            // Medical info
+            document.getElementById('vaccinated-display').textContent = catProfile.medical.vaccinated ? '✓ Yes' : '✗ No';
+            document.getElementById('neutered-display').textContent = catProfile.medical.neutered ? '✓ Yes' : '✗ No';
+            document.getElementById('medical-conditions').textContent = catProfile.medical.conditions;
+            document.getElementById('vet-info').textContent = catProfile.medical.veterinarian;
+
+            // Contact
+            document.getElementById('owner-phone').textContent = catProfile.ownerPhone;
+            document.getElementById('call-btn').href = `tel:${catProfile.ownerPhone}`;
+            document.getElementById('text-btn').href = `sms:${catProfile.ownerPhone}`;
+
+            // Last updated
+            document.getElementById('last-updated').textContent = new Date(catProfile.lastUpdated).toLocaleString();
+
+            // Load photos
+            loadPhotos();
+        }
+
+        // Load photo gallery
+        function loadPhotos() {
+            const gallery = document.getElementById('photo-gallery');
+            gallery.innerHTML = '';
+
+            catProfile.photos.forEach((photoUrl, index) => {
+                const img = document.createElement('img');
+                img.src = photoUrl;
+                img.alt = `${catProfile.name} - Photo ${index + 1}`;
+                img.className = 'photo-item';
+                img.onclick = () => openModal(photoUrl);
+                gallery.appendChild(img);
+            });
+        }
+
+        // Modal functions
+        function openModal(imageSrc) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-image');
+            modal.style.display = 'block';
+            modalImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('photo-modal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('photo-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Share location function
+        function shareLocation() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Last Seen Location',
+                    text: `Last seen at: ${catProfile.lastSeen.location}`,
+                    url: catProfile.lastSeen.mapsLink
+                }).catch(console.error);
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(catProfile.lastSeen.mapsLink)
+                    .then(() => alert('Location link copied to clipboard!'))
+                    .catch(() => alert('Failed to copy. Please copy manually.'));
+            }
+        }
+
+        // Share profile function
+        function shareProfile() {
+            const shareText = `LOST CAT: ${catProfile.name}\n` +
+                `Color: ${catProfile.color}\n` +
+                `Last Seen: ${catProfile.lastSeen.location} on ${formatDate(catProfile.lastSeen.date)}\n` +
+                `Contact: ${catProfile.ownerPhone}\n\n` +
+                `Please help us find our beloved pet!`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: `Lost Cat - ${catProfile.name}`,
+                    text: shareText,
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(shareText)
+                    .then(() => alert('Profile information copied to clipboard!'))
+                    .catch(() => {
+                        alert('Share this information:\n\n' + shareText);
+                    });
+            }
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', loadProfile);
+    </script>
+</body>
+</html>
