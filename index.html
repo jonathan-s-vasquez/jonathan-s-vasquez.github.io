@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="https://github.com/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cucho - Perfil de mi gato perdido</title>
     <style>
@@ -154,6 +155,11 @@
             color: white;
         }
 
+        .btn-purple {
+            background-color: #c536f4;
+            color: white;
+        }
+
         .btn-danger:hover {
             background-color: #d32f2f;
             box-shadow: 0 2px 8px rgba(244, 67, 54, 0.4);
@@ -296,7 +302,7 @@
         <!-- Alert Banner -->
         <div class="alert" style="display: none;">
             <div class="alert-title">⚠️ Mascota perdida (13 de Julio 2026)</div>
-            <div class="alert-text">Si ves este gato, por favor contacta a su familia inmediatamente usando la informacion de mas abajo.</div>
+            <div class="alert-text">Si ves este gato, por favor contacta a su familia inmediatamente usando la información de mas abajo.</div>
         </div>
 
         <!-- Main Profile Card -->
@@ -357,7 +363,7 @@
                 <div class="info-item">
                     <span class="info-value" id="address-display">-</span>
                     <a href="#" class="map-link" id="address-map-link" target="_blank" rel="noopener noreferrer">
-                        📍 Open in Google Maps
+                        📍 Ver en Google Maps
                     </a>
                 </div>
             </div>
@@ -383,9 +389,6 @@
                     <a href="#" class="btn btn-primary" id="last-seen-map-btn" target="_blank" rel="noopener noreferrer">
                         Ver en el mapa
                     </a>
-                    <button class="btn btn-secondary" onclick="shareLocation()">
-                        Compartir ubicacion
-                    </button>
                 </div>
             </div>
         </div>
@@ -393,7 +396,7 @@
         <!-- Medical Info Card -->
         <div class="card">
             <div class="card-content">
-                <h2 class="card-title">información médica</h2>
+                <h2 class="card-title">Información médica</h2>
                 <div class="info-grid">
                     <div class="info-item">
                         <span class="info-label">Vacunado</span>
@@ -420,7 +423,8 @@
             <div class="card-content">
                 <h2 class="card-title">Contacto de su familia</h2>
                 <p style="color: #666; margin-bottom: 16px;">Si ves este gato, por favor contactanos inmediatamente:</p>
-                <div class="phone-number" id="owner-phone">-</div>
+                <div class="phone-number" id="owner-name" style="margin-bottom: 0;">-</div>
+                <div class="phone-number" id="owner-phone" style="margin-top: 0;">-</div>
                 <div>
                     <a href="tel:+56926353584" class="btn btn-primary" id="call-btn">
                         📞 Llamar
@@ -428,7 +432,7 @@
                     <a href="sms:+56926353584" class="btn btn-secondary" id="text-btn">
                         💬 Enviar SMS
                     </a>
-                    <a href="https://wa.me/56926353584" class="btn btn-secondary" id="text-btn">
+                    <a href="https://wa.me/56926353584?text=Hola%2C%20acabo%20de%20ver%20a%20tu%20gato  " class="btn btn-secondary" id="text-btn">
                         <div style="position: absolute">
 
 <svg fill="green" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -439,8 +443,8 @@
 
                          <span style="padding-left: 25px">Whatsapp</span>
                     </a>
-                    <button class="btn btn-danger" onclick="shareProfile()">
-                        📤 Share Profile
+                    <button class="btn btn-purple" onclick="shareProfile()">
+                        📤 Compartir a tus contactos
                     </button>
                 </div>
             </div>
@@ -448,7 +452,8 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p>Last updated: <span id="last-updated">-</span></p>
+            <p>Ultima actualizacion: <span id="last-updated">-</span></p>
+            <p>v1.4</p>
         </div>
     </div>
 
@@ -487,6 +492,7 @@
                 conditions: "Ninguna - Saludable",
                 veterinarian: "Dr. Smith - Springfield Animal Clinic (555-0123)"
             },
+            ownerName: "Jonathan Soto",
             ownerPhone: "+56 9 2635 3584",
             photos: [
                 "https://blogger.googleusercontent.com/img/a/AVvXsEj0ayeeS0iCAlbE6YjYuu9JOMSg4sCoJZbdtkZCVUYeu5aFTIk7tOho1axSPPpN4roglAlnPNtr_UdcCfDQolb4_LPNZeKwMcRDAgzWYjDOeg-hLK0wM2OKpKFH9ClYJwaEdnwkaW-TLRHu2rsrIwQIZgKmi5p4FDvGLCcdCFVL5UHgcRb8FgN_feQxnlA",
@@ -527,21 +533,21 @@
         function formatAge(age) {
             const parts = [];
             if (age.years > 0) {
-                parts.push(`${age.years} year${age.years > 1 ? 's' : ''}`);
+                parts.push(`${age.years} año${age.years > 1 ? 's' : ''}`);
             }
             if (age.months > 0) {
-                parts.push(`${age.months} month${age.months > 1 ? 's' : ''}`);
+                parts.push(`${age.months} mes${age.months > 1 ? 'es' : ''}`);
             }
             if (age.days > 0 && age.years === 0) {
-                parts.push(`${age.days} day${age.days > 1 ? 's' : ''}`);
+                parts.push(`${age.days} dia${age.days > 1 ? 's' : ''}`);
             }
-            return parts.join(', ') || 'Newborn';
+            return parts.join(', ') || 'Recien nacido';
         }
 
         // Format date for display
         function formatDate(dateString) {
             const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', {
+            return date.toLocaleDateString('es-CL', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
@@ -587,6 +593,9 @@
             document.getElementById('owner-phone').textContent = catProfile.ownerPhone;
             document.getElementById('call-btn').href = `tel:${catProfile.ownerPhone}`;
             document.getElementById('text-btn').href = `sms:${catProfile.ownerPhone}`;
+            
+            // Contact
+            document.getElementById('owner-name').textContent = catProfile.ownerName;
 
             // Last updated
             document.getElementById('last-updated').textContent = new Date(catProfile.lastUpdated).toLocaleString();
@@ -681,7 +690,7 @@
 
             if (navigator.share) {
                 navigator.share({
-                    title: `Lost Cat - ${catProfile.name}`,
+                    title: `Gato perdido - ${catProfile.name}`,
                     text: shareText,
                     url: window.location.href
                 }).catch(console.error);
@@ -690,7 +699,7 @@
                 navigator.clipboard.writeText(shareText)
                     .then(() => alert('Perfil copiado en el portapapeles!'))
                     .catch(() => {
-                        alert('Comparte esta informacion:\n\n' + shareText);
+                        alert('Comparte esta información:\n\n' + shareText);
                     });
             }
         }
