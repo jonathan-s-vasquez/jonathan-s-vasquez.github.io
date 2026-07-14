@@ -477,7 +477,7 @@
         <!-- Footer -->
         <div class="footer">
             <p>Ultima actualizacion: <span id="last-updated">-</span></p>
-            <p id="manual-version-number">v1.5</p>
+            <p id="manual-version-number">v1.6</p>
         </div>
     </div>
 
@@ -730,8 +730,8 @@
         function shareProfile() {
             const shareText = `GATO PERDIDO: ${catProfile.name}\n` +
                 `Color: ${catProfile.color}\n` +
-                `Last Seen: ${catProfile.lastSeen.location} on ${formatDate(catProfile.lastSeen.date)}\n` +
-                `Contact: ${catProfile.ownerPhone}\n\n` +
+                `Ultima vez visto: ${catProfile.lastSeen.location} on ${formatDate(catProfile.lastSeen.date)}\n` +
+                `Contacto: ${catProfile.ownerPhone}\n\n` +
                 `Por favor ayudanos a recuperarlo!`;
 
             if (navigator.share) {
