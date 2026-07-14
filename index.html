@@ -453,7 +453,7 @@
         <!-- Footer -->
         <div class="footer">
             <p>Ultima actualizacion: <span id="last-updated">-</span></p>
-            <p>v1.4</p>
+            <p id="manual-version-number">v1.5</p>
         </div>
     </div>
 
@@ -478,7 +478,7 @@
             breed: "Comun pelo largo",
             weight: "4.5 kg",
             microchipId: "No tiene aun :c",
-            distinctiveMarks: "Pecho blanco,",
+            distinctiveMarks: "Blanco en el pecho, estomago, y patas.",
             homeAddress: "Los suspiros 16269, Casa 188. San Bernardo, Chile",
             googleMapsLink: "https://maps.app.goo.gl/vMTDDyc2yd57wevU9",
             lastSeen: {
@@ -496,9 +496,13 @@
             ownerPhone: "+56 9 2635 3584",
             photos: [
                 "https://blogger.googleusercontent.com/img/a/AVvXsEj0ayeeS0iCAlbE6YjYuu9JOMSg4sCoJZbdtkZCVUYeu5aFTIk7tOho1axSPPpN4roglAlnPNtr_UdcCfDQolb4_LPNZeKwMcRDAgzWYjDOeg-hLK0wM2OKpKFH9ClYJwaEdnwkaW-TLRHu2rsrIwQIZgKmi5p4FDvGLCcdCFVL5UHgcRb8FgN_feQxnlA",
+                "https://blogger.googleusercontent.com/img/a/AVvXsEiCofyz1KOq5zqP3QaBuFifLL3rb0CEDn7gilod3jxWHZjr9ScD5AQ1EUp0Vs9-5aJFYlDUN_gttAJTNgnyakVooPDd0jwy9r-cI7ey2Zk2tfd851eDNf3lQOO6g6iLmsA2xumpa_xMylwY0nRAIb_G5WZgvn7gwIduWUoPdiGNDus3EFA1evTALbVINeY",
                 "https://blogger.googleusercontent.com/img/a/AVvXsEhE56MLUkMaofo_yzIemjxL0QZMnYAu_Hd8OMGDMwbJa3Ms9_sI0iADa-fAlyZ2z2sKrUvDpX5UaVhfLQLwhv6JgcEWh5PsXf8CGewBDy4e7_t3xPfkSyYVEBi68JpwTFlimQmrjYQUGMP2hTwMW4ifM4EWV1vJK4cEw8YUo8t5-rB3hKXbq_aT4O4hV1g",
                 "https://blogger.googleusercontent.com/img/a/AVvXsEjtH0pNPwUqTYFBB5IrFDrGVmLgOgKq2CONQOSOCWtucTIerITK5gho4gHPTI9L4iyH1t6R9YP4YdRsXQr6uG1apF6qlRkgj7891IWjTCRtZpUzB_0EOEPWkUixTbxB6-2vGbreT-Zfmc2tbgEkTc79kSOaR5frCCAyD8wgIrjEBiDvOo3tXGZugL0JuAg",
-                "https://blogger.googleusercontent.com/img/a/AVvXsEjtH0pNPwUqTYFBB5IrFDrGVmLgOgKq2CONQOSOCWtucTIerITK5gho4gHPTI9L4iyH1t6R9YP4YdRsXQr6uG1apF6qlRkgj7891IWjTCRtZpUzB_0EOEPWkUixTbxB6-2vGbreT-Zfmc2tbgEkTc79kSOaR5frCCAyD8wgIrjEBiDvOo3tXGZugL0JuAg"
+                "https://blogger.googleusercontent.com/img/a/AVvXsEhtUI8tUFiz0fHCMhuJC1xUJGh0nh42M67XxAD_TEJpOeyVrsRsm4iuF2fx2D9ZUsf4zofL12EUi0OsXlLY0DyhfjSVrV3e8p_KEU-M0uAchDe8KPUbgEZDhFD0rUsFl7L0zzQs9yu5iNtfGDGLK4PB36WyDr-SsKe8G7tcYrvIrSa-YczmPz-eeP5G6_g",
+                "https://blogger.googleusercontent.com/img/a/AVvXsEiGccmtVcogbU0STPVRRwzYW6V-rDMuSXjrnxQi-YCsZiqQwKVxcP7rXZjeqNOceGZSh2GDSDFnpNetttPmI4ls3NJCyAr754jn1v-Ndo1--3cq2ibHGI42kHnd4WPIgNFsPlDpqpyYR5SHFHFH0v5rfDGxMr8cKyT_LnUU4GVVF4j2issdAJfdK9fycDM",
+                "https://blogger.googleusercontent.com/img/a/AVvXsEjENDfmNSbV5CTt9MU1U1aLKSYXbCl_Kog6GEk803cbj4iR3BthZ_ifF-Q5o-kuiRpOCSun8kCnk43MxtD2WrQyQ2PKt5yefsN2khCI6Sy3Ysh44Kn-Z-HnCaHGK8beiooW7oUWkj2TPgOB9iR9d9mdrdeGt_F6V1kmxj_1BlQ7QTBhBbgb6bjqdCG7lZs",
+                "https://blogger.googleusercontent.com/img/a/AVvXsEiQrihd2RLREMqkRh8iSqCbvuRRLp1BIEGO8uiUhf9p0fflo82qogLCZTa5vI7G2xu_o0P0QILn_YvGZSzSS2tE4VKJ7E8OU5kT1poSuzr2mZbgbh8cgdwWuFVqoQxoML71YGDqZr3IWlaK-19tOWWg-oEHwtr6XL_rsRkng5oH6EUAQBvIVYAV7dxRo8A",
             ],
             lastUpdated: new Date().toISOString()
         };
@@ -645,6 +649,17 @@
                 closeModal();
             }
         }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                 if (window.location.hash == '#img') {
+                    const modal = document.getElementById('photo-modal');
+                    if (modal.style.display === 'block') {
+                        closeModal();
+                    }
+                }
+            }
+        });
 
         // Handle back button navigation - close modal when hash changes
         window.addEventListener('hashchange', function() {
