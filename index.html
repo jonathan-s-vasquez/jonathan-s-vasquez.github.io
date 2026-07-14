@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cat - Lost Pet Profile</title>
+    <title>Cucho - Perfil de mi gato perdido</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -235,6 +235,7 @@
         }
 
         .modal-content {
+            text-align: center;
             position: relative;
             top: 50%;
             left: 50%;
@@ -263,6 +264,11 @@
             color: #ccc;
         }
 
+        #cat-name {
+            font-weight: 700;
+            font-size: 40px;
+        }
+
         /* Responsive Design */
         @media (min-width: 600px) {
             .info-grid {
@@ -288,9 +294,9 @@
 <body>
     <div class="container">
         <!-- Alert Banner -->
-        <div class="alert">
-            <div class="alert-title">⚠️ LOST PET ALERT</div>
-            <div class="alert-text">If you see this cat, please contact the owner immediately using the information below.</div>
+        <div class="alert" style="display: none;">
+            <div class="alert-title">⚠️ Mascota perdida (13 de Julio 2026)</div>
+            <div class="alert-text">Si ves este gato, por favor contacta a su familia inmediatamente usando la informacion de mas abajo.</div>
         </div>
 
         <!-- Main Profile Card -->
@@ -306,10 +312,10 @@
                 </div>
 
                 <!-- Cat Details -->
-                <h2 class="card-title">Cat Details</h2>
+                <h2 class="card-title">Perfil de mi gato</h2>
                 <div class="info-grid">
                     <div class="info-item">
-                        <span class="info-label">Name</span>
+                        <span class="info-label">Nombre</span>
                         <span class="info-value" id="name-display">-</span>
                     </div>
                     <div class="info-item">
@@ -317,37 +323,37 @@
                         <span class="info-value" id="color-display">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Age</span>
+                        <span class="info-label">Edad</span>
                         <span class="info-value" id="age-display">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Birthday</span>
+                        <span class="info-label">Fecha de nacimiento</span>
                         <span class="info-value" id="birthday-display">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Gender</span>
+                        <span class="info-label">Genero</span>
                         <span class="info-value" id="gender-display">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Breed</span>
+                        <span class="info-label">Raza</span>
                         <span class="info-value" id="breed-display">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Weight</span>
+                        <span class="info-label">Peso</span>
                         <span class="info-value" id="weight-display">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Microchip ID</span>
+                        <span class="info-label">Microchip</span>
                         <span class="info-value" id="microchip-display">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Distinctive Marks</span>
+                        <span class="info-label">Marcas distintivas</span>
                         <span class="info-value" id="marks-display">-</span>
                     </div>
                 </div>
 
                 <!-- Home Address -->
-                <h2 class="card-title" style="margin-top: 24px;">Home Address</h2>
+                <h2 class="card-title" style="margin-top: 24px;">Direccion de su hogar</h2>
                 <div class="info-item">
                     <span class="info-value" id="address-display">-</span>
                     <a href="#" class="map-link" id="address-map-link" target="_blank" rel="noopener noreferrer">
@@ -360,25 +366,25 @@
         <!-- Last Seen Card -->
         <div class="card last-seen">
             <div class="card-header">
-                <h2 class="card-title" style="border-bottom: none; color: white;">Last Seen Information</h2>
+                <h2 class="card-title" style="border-bottom: none; color: white;">Ultima vez visto</h2>
             </div>
             <div class="card-content">
                 <div class="info-grid">
                     <div class="info-item">
-                        <span class="info-label">Date</span>
+                        <span class="info-label"><b>Fecha</b></span>
                         <span class="info-value" id="last-seen-date">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Location</span>
+                        <span class="info-label"><b>Lugar</b></span>
                         <span class="info-value" id="last-seen-location">-</span>
                     </div>
                 </div>
                 <div style="margin-top: 16px;">
                     <a href="#" class="btn btn-primary" id="last-seen-map-btn" target="_blank" rel="noopener noreferrer">
-                        View on Map
+                        Ver en el mapa
                     </a>
                     <button class="btn btn-secondary" onclick="shareLocation()">
-                        Share Location
+                        Compartir ubicacion
                     </button>
                 </div>
             </div>
@@ -387,21 +393,21 @@
         <!-- Medical Info Card -->
         <div class="card">
             <div class="card-content">
-                <h2 class="card-title">Medical Information</h2>
+                <h2 class="card-title">información médica</h2>
                 <div class="info-grid">
                     <div class="info-item">
-                        <span class="info-label">Vaccinated</span>
+                        <span class="info-label">Vacunado</span>
                         <span class="info-value" id="vaccinated-display">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Neutered/Spayed</span>
+                        <span class="info-label">Esterilizado</span>
                         <span class="info-value" id="neutered-display">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Medical Conditions</span>
+                        <span class="info-label">Condiciones medicas</span>
                         <span class="info-value" id="medical-conditions">-</span>
                     </div>
-                    <div class="info-item">
+                    <div class="info-item" style="display: none">
                         <span class="info-label">Veterinarian</span>
                         <span class="info-value" id="vet-info">-</span>
                     </div>
@@ -412,15 +418,26 @@
         <!-- Contact Card -->
         <div class="card contact-section">
             <div class="card-content">
-                <h2 class="card-title">Contact Owner</h2>
-                <p style="color: #666; margin-bottom: 16px;">If you find this cat, please call or text immediately:</p>
+                <h2 class="card-title">Contacto de su familia</h2>
+                <p style="color: #666; margin-bottom: 16px;">Si ves este gato, por favor contactanos inmediatamente:</p>
                 <div class="phone-number" id="owner-phone">-</div>
                 <div>
-                    <a href="tel:+1234567890" class="btn btn-primary" id="call-btn">
-                        📞 Call Now
+                    <a href="tel:+56926353584" class="btn btn-primary" id="call-btn">
+                        📞 Llamar
                     </a>
-                    <a href="sms:+1234567890" class="btn btn-secondary" id="text-btn">
-                        💬 Send SMS
+                    <a href="sms:+56926353584" class="btn btn-secondary" id="text-btn">
+                        💬 Enviar SMS
+                    </a>
+                    <a href="https://wa.me/56926353584" class="btn btn-secondary" id="text-btn">
+                        <div style="position: absolute">
+
+<svg fill="green" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>whatsapp</title>
+<path d="M26.576 5.363c-2.69-2.69-6.406-4.354-10.511-4.354-8.209 0-14.865 6.655-14.865 14.865 0 2.732 0.737 5.291 2.022 7.491l-0.038-0.070-2.109 7.702 7.879-2.067c2.051 1.139 4.498 1.809 7.102 1.809h0.006c8.209-0.003 14.862-6.659 14.862-14.868 0-4.103-1.662-7.817-4.349-10.507l0 0zM16.062 28.228h-0.005c-0 0-0.001 0-0.001 0-2.319 0-4.489-0.64-6.342-1.753l0.056 0.031-0.451-0.267-4.675 1.227 1.247-4.559-0.294-0.467c-1.185-1.862-1.889-4.131-1.889-6.565 0-6.822 5.531-12.353 12.353-12.353s12.353 5.531 12.353 12.353c0 6.822-5.53 12.353-12.353 12.353h-0zM22.838 18.977c-0.371-0.186-2.197-1.083-2.537-1.208-0.341-0.124-0.589-0.185-0.837 0.187-0.246 0.371-0.958 1.207-1.175 1.455-0.216 0.249-0.434 0.279-0.805 0.094-1.15-0.466-2.138-1.087-2.997-1.852l0.010 0.009c-0.799-0.74-1.484-1.587-2.037-2.521l-0.028-0.052c-0.216-0.371-0.023-0.572 0.162-0.757 0.167-0.166 0.372-0.434 0.557-0.65 0.146-0.179 0.271-0.384 0.366-0.604l0.006-0.017c0.043-0.087 0.068-0.188 0.068-0.296 0-0.131-0.037-0.253-0.101-0.357l0.002 0.003c-0.094-0.186-0.836-2.014-1.145-2.758-0.302-0.724-0.609-0.625-0.836-0.637-0.216-0.010-0.464-0.012-0.712-0.012-0.395 0.010-0.746 0.188-0.988 0.463l-0.001 0.002c-0.802 0.761-1.3 1.834-1.3 3.023 0 0.026 0 0.053 0.001 0.079l-0-0.004c0.131 1.467 0.681 2.784 1.527 3.857l-0.012-0.015c1.604 2.379 3.742 4.282 6.251 5.564l0.094 0.043c0.548 0.248 1.25 0.513 1.968 0.74l0.149 0.041c0.442 0.14 0.951 0.221 1.479 0.221 0.303 0 0.601-0.027 0.889-0.078l-0.031 0.004c1.069-0.223 1.956-0.868 2.497-1.749l0.009-0.017c0.165-0.366 0.261-0.793 0.261-1.242 0-0.185-0.016-0.366-0.047-0.542l0.003 0.019c-0.092-0.155-0.34-0.247-0.712-0.434z"></path>
+</svg>
+                        </div>
+
+                         <span style="padding-left: 25px">Whatsapp</span>
                     </a>
                     <button class="btn btn-danger" onclick="shareProfile()">
                         📤 Share Profile
@@ -432,7 +449,6 @@
         <!-- Footer -->
         <div class="footer">
             <p>Last updated: <span id="last-updated">-</span></p>
-            <p style="margin-top: 8px;">Thank you for helping bring our beloved pet home! 🐱❤️</p>
         </div>
     </div>
 
@@ -450,33 +466,33 @@
         // ============================================
 
         const catProfile = {
-            name: "Whiskers",
-            color: "Orange Tabby with White Paws",
-            birthday: "2019-03-15", // Format: YYYY-MM-DD
-            gender: "Male",
-            breed: "Domestic Shorthair",
+            name: "Cucho",
+            color: "Gris con manchas blancas",
+            birthday: "2020-07-12", // Format: YYYY-MM-DD
+            gender: "Macho",
+            breed: "Comun pelo largo",
             weight: "4.5 kg",
-            microchipId: "985112345678901",
-            distinctiveMarks: "White patch on chest, small scar above left eye",
-            homeAddress: "123 Maple Street, Springfield, IL 62701, USA",
-            googleMapsLink: "https://maps.google.com/?q=123+Maple+Street,+Springfield,+IL+62701",
+            microchipId: "No tiene aun :c",
+            distinctiveMarks: "Pecho blanco,",
+            homeAddress: "Los suspiros 16269, Casa 188. San Bernardo, Chile",
+            googleMapsLink: "https://maps.app.goo.gl/vMTDDyc2yd57wevU9",
             lastSeen: {
-                date: "2024-01-15",
-                location: "Near Central Park, Springfield",
-                mapsLink: "https://maps.google.com/?q=Central+Park,+Springfield,+IL"
+                date: "2026-07-13",
+                location: "Baquedano 1200. San Bernardo, Chile",
+                mapsLink: "https://maps.app.goo.gl/J5jzT49WzpkgjiSX9"
             },
             medical: {
                 vaccinated: true,
                 neutered: true,
-                conditions: "None - Healthy",
+                conditions: "Ninguna - Saludable",
                 veterinarian: "Dr. Smith - Springfield Animal Clinic (555-0123)"
             },
-            ownerPhone: "+1-555-123-4567",
+            ownerPhone: "+56 9 2635 3584",
             photos: [
-                "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop",
-                "https://images.unsplash.com/photo-1573865526739-10659fec7805?w=400&h=300&fit=crop",
-                "https://images.unsplash.com/photo-1495360019602-e0019216adfe?w=400&h=300&fit=crop",
-                "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400&h=300&fit=crop"
+                "https://blogger.googleusercontent.com/img/a/AVvXsEj0ayeeS0iCAlbE6YjYuu9JOMSg4sCoJZbdtkZCVUYeu5aFTIk7tOho1axSPPpN4roglAlnPNtr_UdcCfDQolb4_LPNZeKwMcRDAgzWYjDOeg-hLK0wM2OKpKFH9ClYJwaEdnwkaW-TLRHu2rsrIwQIZgKmi5p4FDvGLCcdCFVL5UHgcRb8FgN_feQxnlA",
+                "https://blogger.googleusercontent.com/img/a/AVvXsEhE56MLUkMaofo_yzIemjxL0QZMnYAu_Hd8OMGDMwbJa3Ms9_sI0iADa-fAlyZ2z2sKrUvDpX5UaVhfLQLwhv6JgcEWh5PsXf8CGewBDy4e7_t3xPfkSyYVEBi68JpwTFlimQmrjYQUGMP2hTwMW4ifM4EWV1vJK4cEw8YUo8t5-rB3hKXbq_aT4O4hV1g",
+                "https://blogger.googleusercontent.com/img/a/AVvXsEjtH0pNPwUqTYFBB5IrFDrGVmLgOgKq2CONQOSOCWtucTIerITK5gho4gHPTI9L4iyH1t6R9YP4YdRsXQr6uG1apF6qlRkgj7891IWjTCRtZpUzB_0EOEPWkUixTbxB6-2vGbreT-Zfmc2tbgEkTc79kSOaR5frCCAyD8wgIrjEBiDvOo3tXGZugL0JuAg",
+                "https://blogger.googleusercontent.com/img/a/AVvXsEjtH0pNPwUqTYFBB5IrFDrGVmLgOgKq2CONQOSOCWtucTIerITK5gho4gHPTI9L4iyH1t6R9YP4YdRsXQr6uG1apF6qlRkgj7891IWjTCRtZpUzB_0EOEPWkUixTbxB6-2vGbreT-Zfmc2tbgEkTc79kSOaR5frCCAyD8wgIrjEBiDvOo3tXGZugL0JuAg"
             ],
             lastUpdated: new Date().toISOString()
         };
@@ -619,25 +635,25 @@
         function shareLocation() {
             if (navigator.share) {
                 navigator.share({
-                    title: 'Last Seen Location',
-                    text: `Last seen at: ${catProfile.lastSeen.location}`,
+                    title: 'Lugar ultima vez visto',
+                    text: `Ultima vez visto: ${catProfile.lastSeen.location}`,
                     url: catProfile.lastSeen.mapsLink
                 }).catch(console.error);
             } else {
                 // Fallback: copy to clipboard
                 navigator.clipboard.writeText(catProfile.lastSeen.mapsLink)
-                    .then(() => alert('Location link copied to clipboard!'))
-                    .catch(() => alert('Failed to copy. Please copy manually.'));
+                    .then(() => alert('Link copiado en el portapapeles!'))
+                    .catch(() => alert('Error al copiar el link, favor copiarlo manualmente.'));
             }
         }
 
         // Share profile function
         function shareProfile() {
-            const shareText = `LOST CAT: ${catProfile.name}\n` +
+            const shareText = `GATO PERDIDO: ${catProfile.name}\n` +
                 `Color: ${catProfile.color}\n` +
                 `Last Seen: ${catProfile.lastSeen.location} on ${formatDate(catProfile.lastSeen.date)}\n` +
                 `Contact: ${catProfile.ownerPhone}\n\n` +
-                `Please help us find our beloved pet!`;
+                `Por favor ayudanos a recuperarlo!`;
 
             if (navigator.share) {
                 navigator.share({
@@ -648,9 +664,9 @@
             } else {
                 // Fallback: copy to clipboard
                 navigator.clipboard.writeText(shareText)
-                    .then(() => alert('Profile information copied to clipboard!'))
+                    .then(() => alert('Perfil copiado en el portapapeles!'))
                     .catch(() => {
-                        alert('Share this information:\n\n' + shareText);
+                        alert('Comparte esta informacion:\n\n' + shareText);
                     });
             }
         }
