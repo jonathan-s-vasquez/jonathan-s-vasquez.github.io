@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="https://github.com/favicon.ico">
@@ -258,12 +259,28 @@
 
         .close-modal {
             position: absolute;
+            z-index: 1000;
+            border: 1px solid white;
+            border-radius: 100%;
+            height: 40px;
+            width: 40px;
             top: 20px;
             right: 30px;
             color: #fff;
             font-size: 40px;
             font-weight: bold;
             cursor: pointer;
+
+            background-color: rgba(0, 0, 0, .6);
+
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal > div {
+            padding-bottom: 9px;
         }
 
         .close-modal:hover {
@@ -297,12 +314,14 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Alert Banner -->
         <div class="alert" style="display: none;">
             <div class="alert-title">⚠️ Mascota perdida (13 de Julio 2026)</div>
-            <div class="alert-text">Si ves este gato, por favor contacta a su familia inmediatamente usando la información de mas abajo.</div>
+            <div class="alert-text">Si ves este gato, por favor contacta a su familia inmediatamente usando la
+                información de mas abajo.</div>
         </div>
 
         <!-- Main Profile Card -->
@@ -386,7 +405,8 @@
                     </div>
                 </div>
                 <div style="margin-top: 16px;">
-                    <a href="#" class="btn btn-primary" id="last-seen-map-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="#" class="btn btn-primary" id="last-seen-map-btn" target="_blank"
+                        rel="noopener noreferrer">
                         Ver en el mapa
                     </a>
                 </div>
@@ -432,16 +452,20 @@
                     <a href="sms:+56926353584" class="btn btn-secondary" id="text-btn">
                         💬 Enviar SMS
                     </a>
-                    <a href="https://wa.me/56926353584?text=Hola%2C%20acabo%20de%20ver%20a%20tu%20gato  " class="btn btn-secondary" id="text-btn">
+                    <a href="https://wa.me/56926353584?text=Hola%2C%20acabo%20de%20ver%20a%20tu%20gato  "
+                        class="btn btn-secondary" id="text-btn">
                         <div style="position: absolute">
 
-<svg fill="green" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>whatsapp</title>
-<path d="M26.576 5.363c-2.69-2.69-6.406-4.354-10.511-4.354-8.209 0-14.865 6.655-14.865 14.865 0 2.732 0.737 5.291 2.022 7.491l-0.038-0.070-2.109 7.702 7.879-2.067c2.051 1.139 4.498 1.809 7.102 1.809h0.006c8.209-0.003 14.862-6.659 14.862-14.868 0-4.103-1.662-7.817-4.349-10.507l0 0zM16.062 28.228h-0.005c-0 0-0.001 0-0.001 0-2.319 0-4.489-0.64-6.342-1.753l0.056 0.031-0.451-0.267-4.675 1.227 1.247-4.559-0.294-0.467c-1.185-1.862-1.889-4.131-1.889-6.565 0-6.822 5.531-12.353 12.353-12.353s12.353 5.531 12.353 12.353c0 6.822-5.53 12.353-12.353 12.353h-0zM22.838 18.977c-0.371-0.186-2.197-1.083-2.537-1.208-0.341-0.124-0.589-0.185-0.837 0.187-0.246 0.371-0.958 1.207-1.175 1.455-0.216 0.249-0.434 0.279-0.805 0.094-1.15-0.466-2.138-1.087-2.997-1.852l0.010 0.009c-0.799-0.74-1.484-1.587-2.037-2.521l-0.028-0.052c-0.216-0.371-0.023-0.572 0.162-0.757 0.167-0.166 0.372-0.434 0.557-0.65 0.146-0.179 0.271-0.384 0.366-0.604l0.006-0.017c0.043-0.087 0.068-0.188 0.068-0.296 0-0.131-0.037-0.253-0.101-0.357l0.002 0.003c-0.094-0.186-0.836-2.014-1.145-2.758-0.302-0.724-0.609-0.625-0.836-0.637-0.216-0.010-0.464-0.012-0.712-0.012-0.395 0.010-0.746 0.188-0.988 0.463l-0.001 0.002c-0.802 0.761-1.3 1.834-1.3 3.023 0 0.026 0 0.053 0.001 0.079l-0-0.004c0.131 1.467 0.681 2.784 1.527 3.857l-0.012-0.015c1.604 2.379 3.742 4.282 6.251 5.564l0.094 0.043c0.548 0.248 1.25 0.513 1.968 0.74l0.149 0.041c0.442 0.14 0.951 0.221 1.479 0.221 0.303 0 0.601-0.027 0.889-0.078l-0.031 0.004c1.069-0.223 1.956-0.868 2.497-1.749l0.009-0.017c0.165-0.366 0.261-0.793 0.261-1.242 0-0.185-0.016-0.366-0.047-0.542l0.003 0.019c-0.092-0.155-0.34-0.247-0.712-0.434z"></path>
-</svg>
+                            <svg fill="green" width="20px" height="20px" viewBox="0 0 32 32" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <title>whatsapp</title>
+                                <path
+                                    d="M26.576 5.363c-2.69-2.69-6.406-4.354-10.511-4.354-8.209 0-14.865 6.655-14.865 14.865 0 2.732 0.737 5.291 2.022 7.491l-0.038-0.070-2.109 7.702 7.879-2.067c2.051 1.139 4.498 1.809 7.102 1.809h0.006c8.209-0.003 14.862-6.659 14.862-14.868 0-4.103-1.662-7.817-4.349-10.507l0 0zM16.062 28.228h-0.005c-0 0-0.001 0-0.001 0-2.319 0-4.489-0.64-6.342-1.753l0.056 0.031-0.451-0.267-4.675 1.227 1.247-4.559-0.294-0.467c-1.185-1.862-1.889-4.131-1.889-6.565 0-6.822 5.531-12.353 12.353-12.353s12.353 5.531 12.353 12.353c0 6.822-5.53 12.353-12.353 12.353h-0zM22.838 18.977c-0.371-0.186-2.197-1.083-2.537-1.208-0.341-0.124-0.589-0.185-0.837 0.187-0.246 0.371-0.958 1.207-1.175 1.455-0.216 0.249-0.434 0.279-0.805 0.094-1.15-0.466-2.138-1.087-2.997-1.852l0.010 0.009c-0.799-0.74-1.484-1.587-2.037-2.521l-0.028-0.052c-0.216-0.371-0.023-0.572 0.162-0.757 0.167-0.166 0.372-0.434 0.557-0.65 0.146-0.179 0.271-0.384 0.366-0.604l0.006-0.017c0.043-0.087 0.068-0.188 0.068-0.296 0-0.131-0.037-0.253-0.101-0.357l0.002 0.003c-0.094-0.186-0.836-2.014-1.145-2.758-0.302-0.724-0.609-0.625-0.836-0.637-0.216-0.010-0.464-0.012-0.712-0.012-0.395 0.010-0.746 0.188-0.988 0.463l-0.001 0.002c-0.802 0.761-1.3 1.834-1.3 3.023 0 0.026 0 0.053 0.001 0.079l-0-0.004c0.131 1.467 0.681 2.784 1.527 3.857l-0.012-0.015c1.604 2.379 3.742 4.282 6.251 5.564l0.094 0.043c0.548 0.248 1.25 0.513 1.968 0.74l0.149 0.041c0.442 0.14 0.951 0.221 1.479 0.221 0.303 0 0.601-0.027 0.889-0.078l-0.031 0.004c1.069-0.223 1.956-0.868 2.497-1.749l0.009-0.017c0.165-0.366 0.261-0.793 0.261-1.242 0-0.185-0.016-0.366-0.047-0.542l0.003 0.019c-0.092-0.155-0.34-0.247-0.712-0.434z">
+                                </path>
+                            </svg>
                         </div>
 
-                         <span style="padding-left: 25px">Whatsapp</span>
+                        <span style="padding-left: 25px">Whatsapp</span>
                     </a>
                     <button class="btn btn-purple" onclick="shareProfile()">
                         📤 Compartir a tus contactos
@@ -459,7 +483,7 @@
 
     <!-- Photo Modal -->
     <div class="modal" id="photo-modal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="close-modal" onclick="closeModal()"><div>&times;</div></div>
         <div class="modal-content">
             <img id="modal-image" src="" alt="Enlarged photo">
         </div>
@@ -494,15 +518,18 @@
             },
             ownerName: "Jonathan Soto",
             ownerPhone: "+56 9 2635 3584",
-            photos: [
-                "https://blogger.googleusercontent.com/img/a/AVvXsEj0ayeeS0iCAlbE6YjYuu9JOMSg4sCoJZbdtkZCVUYeu5aFTIk7tOho1axSPPpN4roglAlnPNtr_UdcCfDQolb4_LPNZeKwMcRDAgzWYjDOeg-hLK0wM2OKpKFH9ClYJwaEdnwkaW-TLRHu2rsrIwQIZgKmi5p4FDvGLCcdCFVL5UHgcRb8FgN_feQxnlA",
-                "https://blogger.googleusercontent.com/img/a/AVvXsEiCofyz1KOq5zqP3QaBuFifLL3rb0CEDn7gilod3jxWHZjr9ScD5AQ1EUp0Vs9-5aJFYlDUN_gttAJTNgnyakVooPDd0jwy9r-cI7ey2Zk2tfd851eDNf3lQOO6g6iLmsA2xumpa_xMylwY0nRAIb_G5WZgvn7gwIduWUoPdiGNDus3EFA1evTALbVINeY",
-                "https://blogger.googleusercontent.com/img/a/AVvXsEhE56MLUkMaofo_yzIemjxL0QZMnYAu_Hd8OMGDMwbJa3Ms9_sI0iADa-fAlyZ2z2sKrUvDpX5UaVhfLQLwhv6JgcEWh5PsXf8CGewBDy4e7_t3xPfkSyYVEBi68JpwTFlimQmrjYQUGMP2hTwMW4ifM4EWV1vJK4cEw8YUo8t5-rB3hKXbq_aT4O4hV1g",
-                "https://blogger.googleusercontent.com/img/a/AVvXsEjtH0pNPwUqTYFBB5IrFDrGVmLgOgKq2CONQOSOCWtucTIerITK5gho4gHPTI9L4iyH1t6R9YP4YdRsXQr6uG1apF6qlRkgj7891IWjTCRtZpUzB_0EOEPWkUixTbxB6-2vGbreT-Zfmc2tbgEkTc79kSOaR5frCCAyD8wgIrjEBiDvOo3tXGZugL0JuAg",
-                "https://blogger.googleusercontent.com/img/a/AVvXsEhtUI8tUFiz0fHCMhuJC1xUJGh0nh42M67XxAD_TEJpOeyVrsRsm4iuF2fx2D9ZUsf4zofL12EUi0OsXlLY0DyhfjSVrV3e8p_KEU-M0uAchDe8KPUbgEZDhFD0rUsFl7L0zzQs9yu5iNtfGDGLK4PB36WyDr-SsKe8G7tcYrvIrSa-YczmPz-eeP5G6_g",
-                "https://blogger.googleusercontent.com/img/a/AVvXsEiGccmtVcogbU0STPVRRwzYW6V-rDMuSXjrnxQi-YCsZiqQwKVxcP7rXZjeqNOceGZSh2GDSDFnpNetttPmI4ls3NJCyAr754jn1v-Ndo1--3cq2ibHGI42kHnd4WPIgNFsPlDpqpyYR5SHFHFH0v5rfDGxMr8cKyT_LnUU4GVVF4j2issdAJfdK9fycDM",
-                "https://blogger.googleusercontent.com/img/a/AVvXsEjENDfmNSbV5CTt9MU1U1aLKSYXbCl_Kog6GEk803cbj4iR3BthZ_ifF-Q5o-kuiRpOCSun8kCnk43MxtD2WrQyQ2PKt5yefsN2khCI6Sy3Ysh44Kn-Z-HnCaHGK8beiooW7oUWkj2TPgOB9iR9d9mdrdeGt_F6V1kmxj_1BlQ7QTBhBbgb6bjqdCG7lZs",
-                "https://blogger.googleusercontent.com/img/a/AVvXsEiQrihd2RLREMqkRh8iSqCbvuRRLp1BIEGO8uiUhf9p0fflo82qogLCZTa5vI7G2xu_o0P0QILn_YvGZSzSS2tE4VKJ7E8OU5kT1poSuzr2mZbgbh8cgdwWuFVqoQxoML71YGDqZr3IWlaK-19tOWWg-oEHwtr6XL_rsRkng5oH6EUAQBvIVYAV7dxRo8A",
+           
+            photosDict: [
+                {min:"https://blogger.googleusercontent.com/img/a/AVvXsEjvqnPoZA6lbdwyYUcH6v4BFCNE8AXy2NehtHXOZVarnc6QMOQlfejtpo03aP4urrjIsB76AXFEVsKD2o8jueKmm1_95Y_d1DW2CNqI8WKUX4WxPDhekKXVwX6Aioi_UIYBlZXfDsmSgVgJhDlGlWMqnhWs6N9pr52k_Qu-fpjFDTtsHg7GbaWgvAXW9b0", max:"https://blogger.googleusercontent.com/img/a/AVvXsEiCofyz1KOq5zqP3QaBuFifLL3rb0CEDn7gilod3jxWHZjr9ScD5AQ1EUp0Vs9-5aJFYlDUN_gttAJTNgnyakVooPDd0jwy9r-cI7ey2Zk2tfd851eDNf3lQOO6g6iLmsA2xumpa_xMylwY0nRAIb_G5WZgvn7gwIduWUoPdiGNDus3EFA1evTALbVINeY"},
+                {min:"https://blogger.googleusercontent.com/img/a/AVvXsEhEAINoHMzTFtTNVfZ3T5bW8HPUEvseeYz5_6ts4xYys4hn9CqTW5M6tjNYb7z6z1-7ISalf3myskdYUSSfqLLuS-skQelnhKUnnjs1oiMzV5P9Vwv570aip3-y1oq-u-wHmdeDdv9z2vl8AhPG_Wctg-8Or430dmX42JEc4oGijIPoKbByz_NTTaISbRU", max:"https://blogger.googleusercontent.com/img/a/AVvXsEj0ayeeS0iCAlbE6YjYuu9JOMSg4sCoJZbdtkZCVUYeu5aFTIk7tOho1axSPPpN4roglAlnPNtr_UdcCfDQolb4_LPNZeKwMcRDAgzWYjDOeg-hLK0wM2OKpKFH9ClYJwaEdnwkaW-TLRHu2rsrIwQIZgKmi5p4FDvGLCcdCFVL5UHgcRb8FgN_feQxnlA"},
+                {min:"https://blogger.googleusercontent.com/img/a/AVvXsEhYuiwhaC0YzW1GKpmGGgakqvzkmxE83svul_oA0swkzUuverMGWDjQdN2AS2bEFgB-1bmbt1aEyb3gYU3_uWfrNhSBjivIHXb73UbykC47v9JvmksnBqCF3e2ND0ZLVIXku7Tg68wM6f8JGuQPH4eQgKTcZDY1LUeiJqTHKxMgjWllYVfaVAqIBsihe4c", max:"https://blogger.googleusercontent.com/img/a/AVvXsEhE56MLUkMaofo_yzIemjxL0QZMnYAu_Hd8OMGDMwbJa3Ms9_sI0iADa-fAlyZ2z2sKrUvDpX5UaVhfLQLwhv6JgcEWh5PsXf8CGewBDy4e7_t3xPfkSyYVEBi68JpwTFlimQmrjYQUGMP2hTwMW4ifM4EWV1vJK4cEw8YUo8t5-rB3hKXbq_aT4O4hV1g"},
+                {min:"https://blogger.googleusercontent.com/img/a/AVvXsEgNzbi7U5Oh5T5qIYws1wSAefC_gOKxup1KHGENSNYdexmiU9PAoDPGaqyEP0Dl5mzeP4WKh4rC-OHKHjO7wOl2DpaYZkyKVffeAT_3GxjahnrazNoHMjkg3aDvKbX8Xnw2BjaUPFnNE-9lzkgG03jpQaSdu4DHw_xUoS9zHIAuxWaLqUuE-eLYe8jTM74", max:"https://blogger.googleusercontent.com/img/a/AVvXsEjtH0pNPwUqTYFBB5IrFDrGVmLgOgKq2CONQOSOCWtucTIerITK5gho4gHPTI9L4iyH1t6R9YP4YdRsXQr6uG1apF6qlRkgj7891IWjTCRtZpUzB_0EOEPWkUixTbxB6-2vGbreT-Zfmc2tbgEkTc79kSOaR5frCCAyD8wgIrjEBiDvOo3tXGZugL0JuAg"},
+                {min:"https://blogger.googleusercontent.com/img/a/AVvXsEgCWLF9LdTPQ8_TErbFjHaLbdqxk5N0yk6y3ReHhvWeObdkyOe-PSU8uqbB-EwOMdgziUEg9xm8u602j7ahiR8_p3-wHnae9BOPzyp0jYqOsc31NhG62QsDhRewIj2cQ0wME36PTB6PCSJv1vmhRktyuqXyuw40VKbt-Yu1mDvj6kP3lO_hMIhz_n8P7So", max:"https://blogger.googleusercontent.com/img/a/AVvXsEhtUI8tUFiz0fHCMhuJC1xUJGh0nh42M67XxAD_TEJpOeyVrsRsm4iuF2fx2D9ZUsf4zofL12EUi0OsXlLY0DyhfjSVrV3e8p_KEU-M0uAchDe8KPUbgEZDhFD0rUsFl7L0zzQs9yu5iNtfGDGLK4PB36WyDr-SsKe8G7tcYrvIrSa-YczmPz-eeP5G6_g"},
+                {min:"https://blogger.googleusercontent.com/img/a/AVvXsEg4DyKCZ2Y8roNDFb34R0yIRhdMimYpUE08Oe8lIdANSm8WLTdkiXTQ51CfERS6u5bTv2CtEGtFeddOsvswxfx78ojhcqWQ3dy_mzcRaKzZucYpHUxT2GOkhWSZPQ1WhnUqRtYjX1XzR_V1MufL-eEBm43Nqs1R9rEiWSJOMXHW7WWjRVE50lHqt5_cvdo", max:"https://blogger.googleusercontent.com/img/a/AVvXsEiQrihd2RLREMqkRh8iSqCbvuRRLp1BIEGO8uiUhf9p0fflo82qogLCZTa5vI7G2xu_o0P0QILn_YvGZSzSS2tE4VKJ7E8OU5kT1poSuzr2mZbgbh8cgdwWuFVqoQxoML71YGDqZr3IWlaK-19tOWWg-oEHwtr6XL_rsRkng5oH6EUAQBvIVYAV7dxRo8A"},
+                {min:"https://blogger.googleusercontent.com/img/a/AVvXsEgKx3fPaHCH_ZuSr_z1JHD4VGx17lV3JXWFVp7LdarDSH81pnyZ5Lj-DRmvsBLPTbI9aNacX_AvSkzbF1cDP4LCqrzInfzW82BoJIw0FzvJ4qUhVR-AGceL8Dj82N0D_92T8VwgG9UMRcGZaRyjMiopzhWJIC0jbC3ZUN_Xm_U07ZOs64sIlyPffPlBxd8", max:"https://blogger.googleusercontent.com/img/a/AVvXsEjENDfmNSbV5CTt9MU1U1aLKSYXbCl_Kog6GEk803cbj4iR3BthZ_ifF-Q5o-kuiRpOCSun8kCnk43MxtD2WrQyQ2PKt5yefsN2khCI6Sy3Ysh44Kn-Z-HnCaHGK8beiooW7oUWkj2TPgOB9iR9d9mdrdeGt_F6V1kmxj_1BlQ7QTBhBbgb6bjqdCG7lZs"},
+                {min:"https://blogger.googleusercontent.com/img/a/AVvXsEjlowG12YiHYPDUcIG0AHNnuF8ERdqa-01hYdu2w-XEZpt0ZCBerwiqdB4qV7NUX1m98jPy-otO8gmOb-Io_94nGCstzROvLxIsag6b8juzWv_ZY_lAnxvVHQTRScvYXV69cu52Bh4pw_byhkMGf8T7l6zU1zX42mNlhlR_JHalFV1opCqlfN-ZJ7xrpjY", max:"https://blogger.googleusercontent.com/img/a/AVvXsEiGccmtVcogbU0STPVRRwzYW6V-rDMuSXjrnxQi-YCsZiqQwKVxcP7rXZjeqNOceGZSh2GDSDFnpNetttPmI4ls3NJCyAr754jn1v-Ndo1--3cq2ibHGI42kHnd4WPIgNFsPlDpqpyYR5SHFHFH0v5rfDGxMr8cKyT_LnUU4GVVF4j2issdAJfdK9fycDM"},
+                
+                // {min:"", max:""},
             ],
             lastUpdated: new Date().toISOString()
         };
@@ -597,7 +624,7 @@
             document.getElementById('owner-phone').textContent = catProfile.ownerPhone;
             document.getElementById('call-btn').href = `tel:${catProfile.ownerPhone}`;
             document.getElementById('text-btn').href = `sms:${catProfile.ownerPhone}`;
-            
+
             // Contact
             document.getElementById('owner-name').textContent = catProfile.ownerName;
 
@@ -613,12 +640,12 @@
             const gallery = document.getElementById('photo-gallery');
             gallery.innerHTML = '';
 
-            catProfile.photos.forEach((photoUrl, index) => {
+            catProfile.photosDict.forEach(({min, max}, index) => {
                 const img = document.createElement('img');
-                img.src = photoUrl;
+                img.src = min;
                 img.alt = `${catProfile.name} - Photo ${index + 1}`;
                 img.className = 'photo-item';
-                img.onclick = () => openModal(photoUrl);
+                img.onclick = () => openModal(max);
                 gallery.appendChild(img);
             });
         }
@@ -643,16 +670,16 @@
         }
 
         // Close modal when clicking outside
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('photo-modal');
             if (event.target === modal) {
                 closeModal();
             }
         }
 
-        window.addEventListener('keydown', function(event) {
+        window.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
-                 if (window.location.hash == '#img') {
+                if (window.location.hash == '#img') {
                     const modal = document.getElementById('photo-modal');
                     if (modal.style.display === 'block') {
                         closeModal();
@@ -662,7 +689,7 @@
         });
 
         // Handle back button navigation - close modal when hash changes
-        window.addEventListener('hashchange', function() {
+        window.addEventListener('hashchange', function () {
             if (window.location.hash !== '#img') {
                 const modal = document.getElementById('photo-modal');
                 if (modal.style.display === 'block') {
@@ -672,7 +699,7 @@
         });
 
         // Handle initial load with #img hash (e.g., page refresh while modal is open)
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             if (window.location.hash === '#img') {
                 // Clear the hash on page load to avoid showing modal on refresh
                 history.replaceState(null, '', window.location.pathname + window.location.search);
@@ -723,4 +750,5 @@
         document.addEventListener('DOMContentLoaded', loadProfile);
     </script>
 </body>
+
 </html>
