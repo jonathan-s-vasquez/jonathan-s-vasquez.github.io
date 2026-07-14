@@ -616,11 +616,17 @@
             const modalImg = document.getElementById('modal-image');
             modal.style.display = 'block';
             modalImg.src = imageSrc;
+            // Add hash to history
+            window.location.hash = 'img';
         }
 
         function closeModal() {
             const modal = document.getElementById('photo-modal');
             modal.style.display = 'none';
+            // Remove hash from URL without adding to history
+            if (window.location.hash === '#img') {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
         }
 
         // Close modal when clicking outside
@@ -630,6 +636,24 @@
                 closeModal();
             }
         }
+
+        // Handle back button navigation - close modal when hash changes
+        window.addEventListener('hashchange', function() {
+            if (window.location.hash !== '#img') {
+                const modal = document.getElementById('photo-modal');
+                if (modal.style.display === 'block') {
+                    closeModal();
+                }
+            }
+        });
+
+        // Handle initial load with #img hash (e.g., page refresh while modal is open)
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hash === '#img') {
+                // Clear the hash on page load to avoid showing modal on refresh
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+        });
 
         // Share location function
         function shareLocation() {
